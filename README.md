@@ -1,6 +1,7 @@
 # restAPI
 zookeeper için localhost:2181
-kafka için localhost:8000
+kafka için localhost:9092
+django için localhost:8000
 dashboard için localhost:8988
 postgresql için localhost:51043
 Kod deposunu bize iletirken senden istediğimiz sana özel anahtar kodu: gAAAAABgUQYA1479gOyKriOrqlW2EKTofjyjzt5mepnuIExrnQ09WXRfeytA8r-VkaturT8B5gh5FbXbJUMx9g_i6TfMMseet8WIy5SV7N2detMnHUSN5a9Pe2oYlChslg0YgpM-16mf72sYNodnRyVbse74j3EJG_bVn4QiRw_G84o6x-GHWI-T5wyy3VmahxWIXV7U1t_RwfZsziHtSidYCykc1y-Yyg==
