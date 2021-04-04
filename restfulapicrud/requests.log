@@ -1,0 +1,27 @@
+INFO:root:GET,0.612,1617550862
+INFO:kafka.conn:<BrokerConnection node_id=0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.1.102', 9092)]>: connecting to host.docker.internal:9092 [('192.168.1.102', 9092) IPv4]
+INFO:kafka.conn:<BrokerConnection node_id=0 host=host.docker.internal:9092 <connecting> [IPv4 ('192.168.1.102', 9092)]>: Connection complete.
+INFO:kafka.conn:<BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connected> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. 
+INFO:root:GET,1.655,1617550863
+INFO:root:POST,0.124,1617550896
+INFO:root:GET,2.472,1617551012
+WARNING:django.request:Not Found: /
+INFO:root:GET,0.802,1617551030
+INFO:root:GET,1.251,1617551031
+INFO:root:POST,0.55,1617551052
+WARNING:django.request:Bad Request: /api/employee/
+INFO:root:POST,0.174,1617551067
+INFO:root:GET,1.345,1617551471
+INFO:root:GET,1.908,1617551472
+INFO:root:GET,1.098,1617551478
+INFO:root:GET,1.365,1617551479
+INFO:root:GET,2.248,1617551667
+INFO:root:GET,2.278,1617551669
+INFO:root:POST,0.759,1617551695
+INFO:root:GET,1.851,1617551746
+INFO:root:GET,1.343,1617551748
+INFO:root:GET,1.961,1617552068
+INFO:root:GET,0.633,1617552070
+INFO:django.utils.autoreload:C:\django\myRestApi\project\restfulapicrud\middleware.py changed, reloading.
+INFO:kafka.producer.kafka:Closing the Kafka producer with 0 secs timeout.
+INFO:kafka.producer.kafka:Proceeding to force close the producer since pending requests could not be completed within timeout 0.

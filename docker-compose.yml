@@ -1,0 +1,64 @@
+version: '2'
+services:
+  zookeeper:
+    image: zookeeper
+    container_name: zookeeper
+    expose:
+    - "2181"
+    environment: 
+      ZOO_LOG4J_PROP: "INFO,ROLLINGFILE"
+
+  kafka:
+    image: wurstmeister/kafka
+    container_name: kafka
+    depends_on:
+    - zookeeper
+    ports:
+      - "9092:9092"
+    expose:
+      - "9093"
+    logging: 
+      driver: "none"
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: INSIDE://kafka:9093,OUTSIDE://localhost:9092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: INSIDE:PLAINTEXT,OUTSIDE:PLAINTEXT
+      KAFKA_LISTENERS: INSIDE://0.0.0.0:9093,OUTSIDE://0.0.0.0:9092
+      KAFKA_INTER_BROKER_LISTENER_NAME: INSIDE
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_CREATE_TOPICS: "restTopic:1:1"
+      KAFKA_LOG4J_LOGGERS: "kafka.controller=WARN,kafka.producer.async.DefaultEventHandler=WARN,state.change.logger=WARN,kafka=WARN"
+  web:
+    build: ./restfulapicrud    
+    container_name: restApiOmer
+    command: python manage.py runserver 0.0.0.0:8000 --noreload
+    ports: 
+      - "8000:8000"
+    restart: always
+  consumer:
+    container_name: kafkaConsumer
+    build : ./kafkaConsumer
+    restart: always
+  dashboard:
+    container_name: dashboard
+    build : ./dashboard
+    restart: always
+    ports:
+      - "8988:8988"
+    expose: 
+      - "8988"
+    environment:
+        TZ: Turkey/Istanbul
+  postgresql:
+    image: postgres
+    ports:
+        - "51043:51043"
+    expose: 
+        - "51043"
+    environment:
+        - POSTGRES_DB=restfulapiDB
+        - POSTGRES_USER=postgres
+        - POSTGRES_PASSWORD=omer
+    container_name: postgredb
+    volumes:
+        - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+  
